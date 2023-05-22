@@ -69,7 +69,7 @@ public class HelloController implements Initializable,EventHandler<CustomEvent> 
         for (int i = 0; i < enemyCount; i++) {
             int x = (int) (Math.random() * (600-30));
             int y = (int) (Math.random() * (400-30));
-            Enemy enemy = new Enemy(x, y, 30, gc, (int) canvas.getWidth(), (int) canvas.getHeight(), 1000, this);
+            Enemy enemy = new Enemy(x, y, 30, gc, (int) canvas.getWidth(), (int) canvas.getHeight(), 5000, this);
             enemy.setDaemon(true);
             enemies.add(enemy);
             enemy.start();

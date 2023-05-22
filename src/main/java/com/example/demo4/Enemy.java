@@ -41,7 +41,6 @@ public class Enemy extends Thread {
     public Enemy(int x, int y, int size, GraphicsContext gc, int canvawiht, int canvaheight, int timesleep, EventHandler<CustomEvent> customEventHandler) {
         File file= new File("image.png");
         String localUrl = String.valueOf(file.getAbsoluteFile());
-        System.out.println(localUrl);
         localUrl=localUrl.replace("image.png","");
         Image logo;
         logo = new Image(localUrl+"\\src\\main\\java\\com\\example\\demo4\\image.png");

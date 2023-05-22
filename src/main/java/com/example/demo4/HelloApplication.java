@@ -18,7 +18,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         File file= new File("logo.png");
         String localUrl = String.valueOf(file.getAbsoluteFile());
-        System.out.println(localUrl);
         localUrl=localUrl.replace("logo.png","");
         Image logo;
         logo = new Image(localUrl+"\\src\\main\\java\\com\\example\\demo4\\logo.png");
