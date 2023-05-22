@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -31,8 +32,20 @@ public class Enemy extends Thread {
 
 
     private boolean isLive=true;
-    Image enemyImage = new Image("C:\\Users\\aguir\\Downloads\\demo4\\src\\main\\java\\com\\example\\demo4\\image.png");
-    public Enemy(int x, int y, int size,GraphicsContext gc,int canvawiht,int canvaheight, int timesleep,EventHandler<CustomEvent> customEventHandler) {
+    Image enemyImage;
+
+    public void setEnemyImage(Image enemyImage) {
+        this.enemyImage = enemyImage;
+    }
+
+    public Enemy(int x, int y, int size, GraphicsContext gc, int canvawiht, int canvaheight, int timesleep, EventHandler<CustomEvent> customEventHandler) {
+        File file= new File("image.png");
+        String localUrl = String.valueOf(file.getAbsoluteFile());
+        System.out.println(localUrl);
+        localUrl=localUrl.replace("image.png","");
+        Image logo;
+        logo = new Image(localUrl+"\\src\\main\\java\\com\\example\\demo4\\image.png");
+        enemyImage=logo;
         this.x = x;
         this.y = y;
         this.size = size;

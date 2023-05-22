@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import java.io.File;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
@@ -15,8 +16,12 @@ public class HelloApplication extends Application {
     private final int largopantalla = 480;
     @Override
     public void start(Stage stage) throws IOException {
-
-        Image logo = new Image("C:\\Users\\aguir\\Downloads\\demo4\\src\\main\\java\\com\\example\\demo4\\logo.png");
+        File file= new File("logo.png");
+        String localUrl = String.valueOf(file.getAbsoluteFile());
+        System.out.println(localUrl);
+        localUrl=localUrl.replace("logo.png","");
+        Image logo;
+        logo = new Image(localUrl+"\\src\\main\\java\\com\\example\\demo4\\logo.png");
         stage.getIcons().add(logo);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), anchopantalla, largopantalla);
