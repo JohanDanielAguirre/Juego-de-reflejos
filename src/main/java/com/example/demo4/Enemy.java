@@ -101,8 +101,8 @@ public class Enemy extends Thread {
         this.live=b;
     }
     public void adjustTimeSleep() {
-        if (timesleep > 50) {
-            timesleep -= 50;
+        if (timesleep >= 100) {
+            timesleep -= 100;
         }
     }
 }
