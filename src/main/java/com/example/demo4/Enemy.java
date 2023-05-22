@@ -53,9 +53,10 @@ public class Enemy extends Thread {
     @Override
     public void run(){
         super.run();
+        gc.drawImage(enemyImage, x, y, size, size);
         while (true){
             isLive=true;
-            gc.drawImage(enemyImage, x, y, size, size);
+
                        try {
                 sleep(timesleep);
             } catch (InterruptedException e) {
@@ -66,17 +67,22 @@ public class Enemy extends Thread {
                 customEventHandler.handle(event);
             }
             gc.clearRect(x, y, size, size);
-            shape.setX(x= (int) (Math.random()*(canvawiht-50)));
-            shape.setY(y= (int) (Math.random()*(canvaheight-50)));
+            shape.setX(x= (int) (Math.random()*(canvawiht-30)));
+            shape.setY(y= (int) (Math.random()*(canvaheight-30)));
+            gc.drawImage(enemyImage, x, y, size, size);
         }
     }
     public boolean clicked(int x, int y){
         Point2D d=new Point2D(x,y);
         if(shape.contains(d)){
             isLive=false;
+            clear();
             return true;
         }
         return false;
+    }
+    public void clear(){
+        gc.clearRect(x, y, size, size);
     }
 
     public void setlive(boolean b) {
